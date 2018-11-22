@@ -4,17 +4,19 @@ Created on Tue May  8 11:26:31 2018
 
 @author: sue
 """
+# element located
 
+# reference：https://www.jianshu.com/p/d7a966ec1189  作者：凝墨洒泪
 from selenium import webdriver
 import time
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 
-# 連接網頁
+# link to browser
 browser = webdriver.Chrome('C:\Python34\Scripts\chromedriver.exe')
 browser.get("http://www.tc-pdbus.url.tw/index.php?init=1")
 
-# 登入資料
+# login
 time.sleep(1)
 name = browser.find_element_by_name("loginname")
 name.send_keys("qqqq")
@@ -27,12 +29,14 @@ time.sleep(1)
 agree_link = browser.find_element_by_link_text("同意")
 agree_link.click()
 time.sleep(2)
-#鎖定frame
+
+# located frame
 browser.switch_to_frame('Umenu')
 reservation = browser.find_element_by_link_text("乘客預約")
 reservation.click()
 time.sleep(6)
-#顯示剩餘訂車次數
+
+# show the rest of reservation
 browser.switch_to.default_content()
 browser.switch_to_frame("Rbody")
 #booking = browser.find_element_by_xpath('//*[@id="today_times"]')
@@ -62,7 +66,7 @@ while today_times == '0':
         today_times = testsoup.select('#today_times')[0].get_text()
         print('訂車剩餘次數:', today_times)
     except:
-        browser.switch_to.alert.accept() # 確認彈出視窗
+        browser.switch_to.alert.accept() # confirm alert window
         time.sleep(2)
         print('--確認提示框--')
         browser.switch_to.default_content()
@@ -177,8 +181,5 @@ else:
         #cmd.click()
         time.sleep(2)
 '''
-#元素定位參考
-#作者：凝墨洒泪
-#链接：https://www.jianshu.com/p/d7a966ec1189
-#來源：简书
-#著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
