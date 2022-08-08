@@ -6,7 +6,7 @@ Created on Tue May  8 11:26:31 2018
 """
 # element located
 
-# reference：https://www.jianshu.com/p/d7a966ec1189  作者：凝墨洒泪
+# reference：https://www.jianshu.com/p/d7a966ec1189
 from selenium import webdriver
 import time
 from selenium.webdriver.support.ui import Select
